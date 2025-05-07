@@ -1,0 +1,17 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Translation {
+  id             Int      @id @default(autoincrement())
+  originalText   String
+  translatedText String
+  sourceLang     String
+  targetLang     String
+  createdAt      DateTime @default(now())
+}
